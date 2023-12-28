@@ -29,10 +29,14 @@ def main():			# creating a main function for ease of use and readability.
     ind = int(input("Enter element: "))
     marks.append(ind)
     i+=1
-    
- toSearch = int(input("Enter the element that you want to search : "))
-
  marks.sort()			# sorting the list, for binary search to work [ monotonic function ]
+  
+ print("The entered elements in the list [ in sorted order ] are - ")
+ 
+ for i in marks:
+ 	print(i, end = " ")
+    
+ toSearch = int(input("\nEnter the element that you want to search : "))
 
  index = binSearch(marks.copy(), toSearch)	# using copy keyword to copy the list to the binSearch function. Can be directly passed without copy
 
