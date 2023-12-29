@@ -6,9 +6,10 @@ def fibonacci(limit):
     elif (limit==1):
         return 1
     elif (limit>1):
-        
         return fibonacci(limit - 1)+fibonacci(limit - 2)
-        
+    else:
+    	print("Invalid limit entered!")
+    	exit(0)
 
 
 def main():
