@@ -61,18 +61,28 @@ def asker(quest, optioning, answersing):
     
     correctIndex = 0
     jeetgaya = 0
-    kitnaMila = 100
-    paisa = []
+    kitnaMila = [0, 100, 300, 500, 1000, 2500]
+    uparWaleVarKaCounter = 1
+    paisa = [0]
     indexCounter = 0
     sahiindexCounter = 0
     count = 0
+    
     for i in quest:
         
         print(f"\n\n\n{i}\n")
         
         answers(optioning, count)
         count+=4
-        jawablo = input("Please enter the Option Subscript : ")
+        jawablo = input("Please enter the Option Subscript [or type 'quit' to exit the game' : ")
+        
+        if(jawablo.lower() == 'quit'):
+            
+            #paisa.append(kitnaMila[uparWaleVarKaCounter-1])
+            break
+            
+        	# print(f"Your take home money is : {kitnaMila[uparWaleVarKaCounter-1]")
+		    
         
         nautankiVar = changekaro(jawablo.upper())
         
@@ -85,14 +95,16 @@ def asker(quest, optioning, answersing):
         
         
         if(optioning[indexCounter]==answersing[correctIndex]):
-            print("\n" + f"Correct Answer! You have won {kitnaMila} Rs!".center(100, " "))
-            paisa.append(kitnaMila)
-            kitnaMila *=10
+            print("\n" + f"Correct Answer! You have won {kitnaMila[uparWaleVarKaCounter]} Rs!".center(100, " "))
+            paisa.append(kitnaMila[uparWaleVarKaCounter])
+
         else:
 
             print("\n" + "Oh no! Your answer is incorrect...".center(100, " "))
+            time.sleep(3)
+            break
             
-
+        uparWaleVarKaCounter+=1
         correctIndex+=1
 
         if(sahiindexCounter == 0):
@@ -102,19 +114,19 @@ def asker(quest, optioning, answersing):
             
         time.sleep(3)
         
+    
+    for i in paisa:
+        jeetgaya +=i
+    
+    print()    
+    print("\n" + "THE GAME HAS ENDED!!!".center(100, " "))
+    time.sleep(3)
+
+    if(jeetgaya>0):
+
+        print("\n" + f"CONGRATULATIONS! You have WON RS {jeetgaya} INR!!!".center(100, " "))
     else:
-        for i in paisa:
-            jeetgaya +=i
-        
-        print()    
-        print("\n" + "THE GAME HAS ENDED!!!".center(100, " "))
-        time.sleep(3)
-
-        if(jeetgaya>0):
-
-            print("\n" + f"CONGRATULATIONS! You have WON RS {jeetgaya} INR!!!".center(100, " "))
-        else:
-            print("\n" + "HAHAHA WOH DEKHO GAREEB!!!".center(100, " "))
+        print("\n\n" + "HAHAHA WOH DEKHO GAREEB!!!".center(100, " "))
 
 def main():
     '''This is the main function'''
